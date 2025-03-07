@@ -32,6 +32,8 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.8.5'//swegger
 
+	implementation group: 'io.github.openfeign', name: 'feign-hc5', version: '13.3'//exclusivo pra corrigir o erro do metodo path do feign
+
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

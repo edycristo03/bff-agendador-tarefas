@@ -3,7 +3,6 @@ package com.github.edycristo03.bffagendadortarefas.business;
 
 
 import com.github.edycristo03.bffagendadortarefas.business.dtos.in.TarefasDTORequest;
-import com.github.edycristo03.bffagendadortarefas.business.dtos.in.TelefoneDTORequest;
 import com.github.edycristo03.bffagendadortarefas.business.dtos.out.TarefasDTOResponse;
 import com.github.edycristo03.bffagendadortarefas.business.enuns.StatusNotificacaoEnum;
 import com.github.edycristo03.bffagendadortarefas.infrestructure.client.TarefasClient;
@@ -20,11 +19,11 @@ public class TarefasService {
 
 
 
-    public TarefasDTOResponse gravarTarefas(String token, TarefasDTORequest tarefasDTO) {
+    public TarefasDTOResponse gravarTarefas( TarefasDTORequest tarefasDTO, String token) {
         return tarefasClient.gravarTarefas(tarefasDTO, token);
     }
 
-    public List<TarefasDTOResponse> buscarTarefasAgendadaPeriodo(LocalDateTime dataInicial, LocalDateTime dataFinal, String token) {
+    public List<TarefasDTOResponse> buscaTarefasAgendadasPorPeriodo(LocalDateTime dataInicial, LocalDateTime dataFinal, String token) {
         return tarefasClient.buscarListaTarefasPeriodo(dataInicial, dataFinal,token);
 
     }

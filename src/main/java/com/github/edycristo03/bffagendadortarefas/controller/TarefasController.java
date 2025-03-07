@@ -5,7 +5,7 @@ import com.github.edycristo03.bffagendadortarefas.business.TarefasService;
 import com.github.edycristo03.bffagendadortarefas.business.dtos.in.TarefasDTORequest;
 import com.github.edycristo03.bffagendadortarefas.business.dtos.out.TarefasDTOResponse;
 import com.github.edycristo03.bffagendadortarefas.business.enuns.StatusNotificacaoEnum;
-import com.github.edycristo03.bffagendadortarefas.infrestructure.client.securiryConfig.SecurityConfig;
+import com.github.edycristo03.bffagendadortarefas.infrestructure.client.securityConfig.SecurityConfig;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -32,8 +32,9 @@ public class TarefasController {
     @ApiResponse(responseCode = "200", description = "Tarefa cadastrada com sucesso")
     @ApiResponse(responseCode = "500", description = "Erro interno do servidor")
     public ResponseEntity<TarefasDTOResponse> gravarTarefas(@RequestBody TarefasDTORequest tarefasDTO,
-                                                            @RequestHeader(name = "Authorization", required = false) String token) {
-        return ResponseEntity.ok(tarefasService.gravarTarefas(token, tarefasDTO));
+                                                            @RequestHeader(name = "Authorization",
+                                                                    required = false) String token) {
+        return ResponseEntity.ok(tarefasService.gravarTarefas(tarefasDTO, token));
     }
 
     @GetMapping("/eventos")
@@ -43,7 +44,7 @@ public class TarefasController {
     public ResponseEntity<List<TarefasDTOResponse>> buscarListaTarefasPeriodo(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
                                                                               @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal,
                                                                               @RequestHeader(name = "Authorization", required = false) String token) {
-        return ResponseEntity.ok(tarefasService.buscarTarefasAgendadaPeriodo(dataInicial, dataFinal, token));
+        return ResponseEntity.ok(tarefasService.buscaTarefasAgendadasPorPeriodo(dataInicial, dataFinal, token));
     }
 
     @GetMapping
@@ -59,7 +60,8 @@ public class TarefasController {
     @ApiResponse(responseCode = "200", description = "Tarefa deletada com sucesso")
     @ApiResponse(responseCode = "500", description = "Erro interno do servidor")
     public ResponseEntity<Void> deletarTarefaPorId(@RequestParam("id") String id,
-                                                   @RequestHeader(name = "Authorization", required = false) String token) {
+                                                   @RequestHeader(name = "Authorization",
+                                                           required = false) String token) {
 
         tarefasService.deletarTarefaPorId(id, token);
         return ResponseEntity.ok().build();
@@ -81,7 +83,8 @@ public class TarefasController {
     @ApiResponse(responseCode = "500", description = "Erro interno do servidor")
     public ResponseEntity<TarefasDTOResponse> updateTarefas(@RequestBody TarefasDTORequest tarefasDTO,
                                                             @RequestParam("id") String id,
-                                                            @RequestHeader(name = "Authorization", required = false) String token) {
+                                                            @RequestHeader(name = "Authorization",
+                                                                    required = false) String token) {
         return ResponseEntity.ok(tarefasService.updateTarefas(tarefasDTO, id, token));
     }
 

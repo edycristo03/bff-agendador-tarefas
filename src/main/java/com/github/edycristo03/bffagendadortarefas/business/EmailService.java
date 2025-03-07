@@ -6,13 +6,16 @@ import com.github.edycristo03.bffagendadortarefas.infrestructure.client.EmailCli
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+
+
 @Service
 @RequiredArgsConstructor
 public class EmailService {
+
     private final EmailClient emailClient;
 
-    public void enviarEmail(TarefasDTOResponse tarefasDTO) {
-        emailClient.enviarEmail(tarefasDTO);
+    public void enviaEmail(TarefasDTOResponse dto) {
+        emailClient.enviarEmail(dto);
     }
 
 

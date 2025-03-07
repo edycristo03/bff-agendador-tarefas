@@ -37,9 +37,9 @@ private final UsuarioClient usuarioClient;
     }
 
 
-    public UsuarioDTOResponse atualizarUsuario(String token, UsuarioDTORequest usuarioDTO) {
+    public UsuarioDTOResponse atualizarDadosUsuario(String token, UsuarioDTORequest usuarioDTO) {
 
-        return usuarioClient.atualizarUsuario(usuarioDTO,token);
+        return usuarioClient.atualizarDadosUsuario(usuarioDTO,token);
     }
 
     public EnderecoDTOResponse atualizarEndereco(Long idEndereco, EnderecoDTOResquest enderecoDTO, String token){

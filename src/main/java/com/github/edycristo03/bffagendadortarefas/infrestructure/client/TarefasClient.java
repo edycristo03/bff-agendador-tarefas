@@ -2,7 +2,6 @@ package com.github.edycristo03.bffagendadortarefas.infrestructure.client;
 
 
 import com.github.edycristo03.bffagendadortarefas.business.dtos.in.TarefasDTORequest;
-import com.github.edycristo03.bffagendadortarefas.business.dtos.in.TelefoneDTORequest;
 import com.github.edycristo03.bffagendadortarefas.business.dtos.out.TarefasDTOResponse;
 import com.github.edycristo03.bffagendadortarefas.business.enuns.StatusNotificacaoEnum;
 import org.springframework.cloud.openfeign.FeignClient;

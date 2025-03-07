@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @FeignClient(name = "usuario",url = "${usuario.url}")
 public interface UsuarioClient {
 
-@GetMapping("/usuario")
+@GetMapping
 UsuarioDTOResponse buscarUsuarioPorEmail(@RequestParam("email") String email,
                                          @RequestHeader("Authorization")String token);
 
@@ -24,7 +24,7 @@ UsuarioDTOResponse buscarUsuarioPorEmail(@RequestParam("email") String email,
 
 
     @PostMapping("/login")
-    String login(@RequestBody LoginDTORequest loginDTO);
+    String login(@RequestBody LoginDTORequest loginDTO);//conferir se vai ser usuariodto ou logindto
 
 
 
@@ -35,8 +35,8 @@ UsuarioDTOResponse buscarUsuarioPorEmail(@RequestParam("email") String email,
 
 
     @PutMapping
-    UsuarioDTOResponse atualizarUsuario(@RequestBody UsuarioDTORequest usuarioDTO ,
-                                        @RequestHeader("Authorization") String token);
+    UsuarioDTOResponse atualizarDadosUsuario(@RequestBody UsuarioDTORequest usuarioDTO ,
+                                             @RequestHeader("Authorization") String token);
 
     @PutMapping("/endereco")
     EnderecoDTOResponse atualizarEndereco(@RequestBody EnderecoDTOResquest enderecoDTO,

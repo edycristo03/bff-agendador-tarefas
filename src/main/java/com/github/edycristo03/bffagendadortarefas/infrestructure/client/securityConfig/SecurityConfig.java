@@ -1,4 +1,4 @@
-package com.github.edycristo03.bffagendadortarefas.infrestructure.client.securiryConfig;
+package com.github.edycristo03.bffagendadortarefas.infrestructure.client.securityConfig;
 
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
