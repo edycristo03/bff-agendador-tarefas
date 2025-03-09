@@ -8,7 +8,9 @@ import com.github.edycristo03.bffagendadortarefas.business.dtos.in.UsuarioDTOReq
 import com.github.edycristo03.bffagendadortarefas.business.dtos.out.EnderecoDTOResponse;
 import com.github.edycristo03.bffagendadortarefas.business.dtos.out.TelefoneDTOResponse;
 import com.github.edycristo03.bffagendadortarefas.business.dtos.out.UsuarioDTOResponse;
+import com.github.edycristo03.bffagendadortarefas.business.dtos.out.ViaCepDTOResponse;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @FeignClient(name = "usuario",url = "${usuario.url}")
@@ -58,7 +60,8 @@ UsuarioDTOResponse buscarUsuarioPorEmail(@RequestParam("email") String email,
     TelefoneDTOResponse cadastrarTelefone(@RequestBody TelefoneDTORequest telefoneDTO,
                                           @RequestHeader("Authorization")String token);
 
-
+    @GetMapping("/endereco/{cep}")
+    ViaCepDTOResponse buscarDadosCep(@PathVariable("cep") String cep);
 
 
 

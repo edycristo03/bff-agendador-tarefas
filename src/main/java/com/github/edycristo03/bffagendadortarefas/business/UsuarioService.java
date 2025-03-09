@@ -7,6 +7,7 @@ import com.github.edycristo03.bffagendadortarefas.business.dtos.in.UsuarioDTOReq
 import com.github.edycristo03.bffagendadortarefas.business.dtos.out.EnderecoDTOResponse;
 import com.github.edycristo03.bffagendadortarefas.business.dtos.out.TelefoneDTOResponse;
 import com.github.edycristo03.bffagendadortarefas.business.dtos.out.UsuarioDTOResponse;
+import com.github.edycristo03.bffagendadortarefas.business.dtos.out.ViaCepDTOResponse;
 import com.github.edycristo03.bffagendadortarefas.infrestructure.client.UsuarioClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -60,6 +61,11 @@ private final UsuarioClient usuarioClient;
     public TelefoneDTOResponse cadastrarTelefone(TelefoneDTORequest telefoneDTO, String token){
         return usuarioClient.cadastrarTelefone(telefoneDTO,token);
 
+
+    }
+
+    public ViaCepDTOResponse buscarEnderecoPorCep(String cep){
+        return usuarioClient.buscarDadosCep(cep);
 
     }
 
